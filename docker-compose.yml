@@ -1,0 +1,51 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./www/vue:/www
+      - ./Nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - lnmp
+  php-fpm:
+    # image: php:8.0.12
+    build: ./dockerfile/php:8.0.12
+    container_name: php8
+    expose:
+      - "9000"
+    volumes:
+      # - ./php/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      # - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./www/php:/www
+    networks:
+      - lnmp
+  mysql:
+    image: mysql:8.0
+    container_name: mysql8
+    ports:
+      - "3306:3306"
+    volumes:
+      # 数据挂载
+      - ./mysql/data:/var/lib/mysql
+      # 配置挂载
+      - ./mysql/config:/etc/mysql/conf.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=lnmp
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+    networks:
+      - lnmp
+  # redis:
+  #   image: redis:latest
+  #   expose:
+  #     - "6379"
+  #   volumes:
+  #     - ./data/redis:/data
+  #   networks:
+  #     - lnmp
+networks:
+  lnmp:
