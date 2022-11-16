@@ -1,4 +1,2 @@
 mysql/data/*
-mongo/data/*
 nginx/log/*
-redis/data/*

@@ -24,7 +24,6 @@ services:
     volumes:
       - ./www/php:/www
       - ./php/config:/usr/local/etc/php
-      # - ./php/php-fpm.conf:/usr/local/etc/php-fpm.conf
     environment:
       - TZ=Asia/Shanghai
     networks:
