@@ -40,7 +40,7 @@ services:
       - ./mysql/config:/etc/mysql/conf.d
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=workspace
+      - MYSQL_DATABASE=range
       - MYSQL_USER=test
       - MYSQL_PASSWORD=test
       - TZ=Asia/Shanghai
