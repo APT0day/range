@@ -11,7 +11,7 @@ class MySQLiException extends \Exception {}
 class MySQLi {
 
     /**
-     * @var MySQLi
+     * @var \DB\MySQLi
      */
     private static $instance;
 
@@ -80,7 +80,7 @@ class MySQLi {
     /**
      * 单例模式
      * @access public
-     * @return \Driver\MySQLx
+     * @return \DB\MySQLx
      */
     public static function getInstance() {
         if (!self::$instance) {
