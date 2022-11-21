@@ -1,17 +1,11 @@
 <?php
-/**
- * @name MySQLi
- * @desc 数据库相关封装
- */
 
-namespace Db;
+class MySQLxException extends \Exception {}
 
-class MySQLiException extends \Exception {}
-
-class MySQLi {
+class MySQLx {
 
     /**
-     * @var \Db\MySQLi
+     * @var \Driver\MySQLx
      */
     private static $instance;
 
@@ -25,6 +19,7 @@ class MySQLi {
 
     /**
      * 数据库连接ID
+     *
      * @var $db_link \mysqli
      */
     public $db_link;
@@ -80,7 +75,7 @@ class MySQLi {
     /**
      * 单例模式
      * @access public
-     * @return \DB\MySQLx
+     * @return \Driver\MySQLx
      */
     public static function getInstance() {
         if (!self::$instance) {
@@ -133,8 +128,12 @@ class MySQLi {
             }
             $this->config = $config;
         }
+        $host = $this->config['host'];
+        if (!empty($this->config['persistent'])) {
+            $host = 'p:' . $host;
+        }
         //连接出错会爆出warning，必须要@屏蔽掉
-        @$this->db_link = new \mysqli($this->config['host'],$this->config['username'],$this->config['password'],$this->config['dbname'],$this->config['port']);
+        @$this->db_link = new \mysqli($host,$this->config['username'],$this->config['password'],$this->config['dbname'],$this->config['port']);
         if($this->db_link->connect_errno)
             throw new MySQLxException('Connect Error: '.$this->db_link->connect_error);
         if (!empty($this->config['charset'])) {
