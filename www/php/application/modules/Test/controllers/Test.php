@@ -20,6 +20,12 @@ class TestController extends Yaf_Controller_Abstract{
             throw new MySQLxException('default dsn not found');
         }
         var_dump($config);
+        $db_link = new \mysqli('mysql', 'root', 'root', 'range', 3306);
+        if($db_link->connect_errno) {
+            echo("连接失败：" . $db_link->connect_errno);
+        }
+        echo "连接成功";
+        echo '123wqe';
         @$db_link = new \mysqli($config['host'], $config['username'], $config['password'], $config['dbname'], $config['port']);
         if($db_link->connect_errno) {
             echo("连接失败：" . $db_link->connect_errno);

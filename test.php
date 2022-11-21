@@ -8,7 +8,6 @@ try {
     $sql = 'select * from user;';
     $result = $db_link->query($sql)->fetch_array();
     var_dump($result);
-
 }catch(Exception $e) {
     echo $e->getMessage();
 }
