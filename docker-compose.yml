@@ -17,7 +17,7 @@ services:
   php-fpm:
     # image: php:8.0.12
     build: ./dockerfile/php:8.0.12
-    container_name: php8
+    container_name: php
     privileged: true
     expose:
       - "9000"
@@ -30,7 +30,7 @@ services:
       - range
   mysql:
     image: mysql:8.0
-    container_name: mysql8
+    container_name: mysql
     privileged: true
     ports:
       - "3306:3306"

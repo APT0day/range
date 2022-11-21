@@ -21,6 +21,15 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 		$dispatcher->registerPlugin($JsonRequestPlugin);
 	}
 
+	public function _initEnvConfig() {
+        if(file_exists(APPLICATION_PATH . '/conf/env.local.ini')){
+            $env = new Yaf_Config_Ini(APPLICATION_PATH . '/conf/env.local.ini');
+        }else{
+            $env = new Yaf_Config_Ini(APPLICATION_PATH . '/conf/env.ini');
+        }
+        Yaf_Registry::set('env', $env);
+    }
+
 	public function _initRoute(Yaf_Dispatcher $dispatcher) {
 		//在这里注册自己的路由协议,默认使用简单路由
 	}

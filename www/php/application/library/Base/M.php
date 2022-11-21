@@ -4,7 +4,7 @@ trait Base_M {
 
     protected static $instance;
     /**
-     * @var \DB\MySQLx
+     * @var \Db\MySQLi
      */
     protected $db_link;
 
@@ -15,7 +15,7 @@ trait Base_M {
     private $_data = false;
 
     protected function __construct() {
-        $this->db_link = \DB\MySQLx::getInstance();
+        $this->db_link = \Db\MySQLi::getInstance();
         if (Yaf_Registry::get('env')->env->type == 'dev' || isset($_COOKIE['dev_debug_on']) || php_sapi_name()=='cli') {
             $this->db_link->enableDebug();
         }

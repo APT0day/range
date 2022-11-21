@@ -4,14 +4,14 @@
  * @desc 数据库相关封装
  */
 
-namespace DB;
+namespace Db;
 
 class MySQLiException extends \Exception {}
 
 class MySQLi {
 
     /**
-     * @var \DB\MySQLi
+     * @var \Db\MySQLi
      */
     private static $instance;
 
@@ -133,12 +133,8 @@ class MySQLi {
             }
             $this->config = $config;
         }
-        $host = $this->config['host'];
-        if (!empty($this->config['persistent'])) {
-            $host = 'p:' . $host;
-        }
         //连接出错会爆出warning，必须要@屏蔽掉
-        @$this->db_link = new \mysqli($host,$this->config['username'],$this->config['password'],$this->config['dbname'],$this->config['port']);
+        @$this->db_link = new \mysqli($this->config['host'],$this->config['username'],$this->config['password'],$this->config['dbname'],$this->config['port']);
         if($this->db_link->connect_errno)
             throw new MySQLxException('Connect Error: '.$this->db_link->connect_error);
         if (!empty($this->config['charset'])) {
