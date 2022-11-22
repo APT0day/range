@@ -54,12 +54,6 @@ trait Base_C {
         die();
     }
 
-    public function redirect($url, $statusCode = 301) {
-        header('Location: ' . $url, $statusCode);
-        die();
-    }
-
-
     /**
      * 视图变量赋值操作
      *
@@ -89,19 +83,19 @@ trait Base_C {
         exit(json_encode($result,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE));
     }
 
-    public function success($info = 'success',$data=[]){
-        $this->response(1,$info,$data);
+    public function success($info = 'success', $data=[]){
+        $this->response(1, $info, $data);
     }
 
-    public function alert($info,$data=[]){
-        $this->response(0,$info,$data);
+    public function alert($info, $data=[]){
+        $this->response(0, $info, $data);
     }
 
-    public function notice($info,$data=[]){
-        $this->response(-1,$info,$data);
+    public function notice($info, $data=[]){
+        $this->response(-1, $info, $data);
     }
 
-    public function message($info,$data=[]){
-        $this->response(-2,$info,$data);
+    public function message($info, $data=[]){
+        $this->response(-2, $info, $data);
     }
 }
