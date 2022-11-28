@@ -30,6 +30,12 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
         Yaf_Registry::set('env', $env);
     }
 
+	public function _initMannualLoad() {
+        //载入函数库
+        Yaf_Loader::import('function.php');
+    }
+
+
 	public function _initRoute(Yaf_Dispatcher $dispatcher) {
 		//在这里注册自己的路由协议,默认使用简单路由
 	}

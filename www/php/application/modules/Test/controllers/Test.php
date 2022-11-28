@@ -8,6 +8,7 @@ class TestController extends Base_UC {
 
     public function testAction(){
         $result = TestModel::getInstance()->test('root');
+        test();
         $this->success($result, [43, 12]);
     }
 }
