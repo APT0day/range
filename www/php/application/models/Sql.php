@@ -8,4 +8,6 @@ class SqlModel {
         echo "当前执行的SQL语句：" . $sql;
         return $this->db_link->query($sql)->fetch_array();
     }
+
+    
 }

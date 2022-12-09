@@ -1,6 +1,16 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
 
-import './assets/main.css'
+import "./assets/main.css";
 
-createApp(App).mount('#app')
+import ViewUIPlus from "view-ui-plus";
+import "view-ui-plus/dist/styles/viewuiplus.css";
+
+import Setting from "./setting";
+import plugins from "@/plugins";
+
+// createApp(App).mount('#app')
+
+const app = createApp(App);
+
+app.use(plugins).use(ViewUIPlus).mount("#app");

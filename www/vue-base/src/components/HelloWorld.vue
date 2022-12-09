@@ -1,4 +1,5 @@
 <script setup>
+import Login from './Login.vue'
 defineProps({
   msg: {
     type: String,
@@ -8,7 +9,8 @@ defineProps({
 </script>
 
 <template>
-  <h1>Hello World!</h1>
+  <!-- <h1>Hello World!</h1> -->
+  <Login />
 </template>
 
 <style scoped>
