@@ -1,12 +1,14 @@
 <script setup>
-const autoLogin = true
+import { ref } from 'vue'
+
+const autoLogin = ref(true)
 
 function handleSubmit(valid, { username, password }) {
     if (valid) {
-        this.$Model.info({
+        this.$Modal.info({
             title: '输入的内容如下：',
             content: 'username: ' + username + ' | password: ' + password
-        })
+        });
     }
 }
 </script>
@@ -26,15 +28,17 @@ function handleSubmit(valid, { username, password }) {
 </template>
 
 <style>
-    .login{
-        width: 400px;
-        margin: 0 auto !important;
-    }
-    .auto-login{
-        margin-bottom: 24px;
-        text-align: left;
-    }
-    .auto-login a{
-        float: right;
-    }
+.login {
+    width: 400px;
+    margin: 0 auto !important;
+}
+
+.auto-login {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.auto-login a {
+    float: right;
+}
 </style>
