@@ -3,14 +3,19 @@ import App from "./App.vue";
 
 import "./assets/main.css";
 
-import ViewUIPlus from "view-ui-plus";
-import "view-ui-plus/dist/styles/viewuiplus.css";
+// 路由
+import router from './router'
+
+// vuex
+import store from './store'
+
+// 全局样式
+import './styles/index.css'
+
+import ViewUIPlus from './plugins/iview'
 
 // import Setting from "./setting";
-// import plugins from "@/plugins";
-
-// createApp(App).mount('#app')
 
 const app = createApp(App);
 
-app.use(ViewUIPlus).mount("#app");
+app.use(router).use(store).use(ViewUIPlus).mount("#app");
