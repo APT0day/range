@@ -1,9 +1,16 @@
 <script setup>
 import { ref } from 'vue'
+import { fetchUserInfo } from '@/api/test'
 
 const autoLogin = ref(true)
+const id = ref(1)
 
 function handleSubmit(valid, { username, password }) {
+    fetchUserInfo(1).then((res) => {
+        console.log(res)
+    }).catch((res) => {
+        console.log('error occured: ', res)
+    })
     if (valid) {
         this.$Modal.info({
             title: '输入的内容如下：',

@@ -14,8 +14,6 @@ import '@/styles/index.css'
 
 import ViewUIPlus from '@/plugins/iview'
 
-// import Setting from "./setting";
-
 const app = createApp(App);
 
 app.use(router).use(store).use(ViewUIPlus).mount("#app");
