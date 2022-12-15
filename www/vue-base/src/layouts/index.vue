@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import AppMain from './components/AppMain.vue'
-import Navbar from './components/navbar.vue'
-import Sidebar from './components/Sidebar.vue';
+import AppMain from '@/components/AppMain.vue'
+import Navbar from '@/components/navbar.vue'
+import Sidebar from '@/components/Sidebar.vue';
 </script>
