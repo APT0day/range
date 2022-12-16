@@ -1,9 +1,9 @@
 <script setup>
-import Login from './Login.vue'
+
 </script>
 
 <template>
-  <Login />
+  <p>Hello World!!!</p>
 </template>
 
 <style scoped>

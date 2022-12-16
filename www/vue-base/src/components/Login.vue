@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import { fetchUserInfo } from '@/api/test'
 
 const autoLogin = ref(true)
-const id = ref(1)
 
 function handleSubmit(valid, { username, password }) {
     fetchUserInfo(1).then((res) => {
