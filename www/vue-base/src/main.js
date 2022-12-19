@@ -1,8 +1,6 @@
 import { createApp } from "vue";
 import App from "@/App.vue";
 
-import "@/assets/main.css";
-
 // 路由
 import router from '@/router'
 
@@ -10,7 +8,7 @@ import router from '@/router'
 import store from '@/store'
 
 // 全局样式
-import '@/styles/index.css'
+import '@/styles/index.scss'
 
 import ViewUIPlus from '@/plugins/iview'
 
