@@ -25,6 +25,7 @@ function handleSubmit() {
     if (form.username && form.password) {
         console.log(form.username)
         console.log(form.password)
+        console.log(routes)
     }else {
         console.log('error')
     }
