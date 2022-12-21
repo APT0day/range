@@ -4,6 +4,10 @@ const Setting = {
     // 接口请求返回错误时，弹窗的持续时间，单位：秒
     modalDuration: 3,
 
+    showLogo: true,
+    logo: '',
+    title: 'iView Admin',
+
 }
 
 export default Setting

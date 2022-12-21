@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import Sider from '@/layouts/components/Sider/index.vue';
+import Sider from '@/layouts/components/Sidebar/index.vue';
 // import AppMain from '@/layouts/components/AppMain.vue'
 // import Navbar from '@/layouts/components/navbar.vue'
 </script>

@@ -1,4 +1,4 @@
-const routes = [
+export const routes = [
     {
         path: '/',
         // redirect: {
@@ -6,12 +6,12 @@ const routes = [
         // },
         component: () => import('@/layouts/index.vue'),
         alwaysShow: true,
-        meta: { title: '导航' },
+        meta: { title: '首页', icon: 'ios-paper' },
         children: [
             {
                 path: '',
                 name: 'home',
-                meta: { title: '首页' },
+                meta: { title: '工作台' },
                 component: () => import('@/views/Home.vue')
             }
         ]

@@ -12,6 +12,4 @@ import '@/styles/index.scss'
 
 import ViewUIPlus from '@/plugins/iview'
 
-const app = createApp(App);
-
-app.use(router).use(store).use(ViewUIPlus).mount("#app");
+createApp(App).use(router).use(store).use(ViewUIPlus).mount("#app");
