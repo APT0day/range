@@ -1,0 +1,45 @@
+
+.layout{
+    
+    &-sider{
+        min-height: 100vh;
+        background: #fff;
+        box-shadow: 2px 0 8px 0 rgba(29,35,41,.05);
+        position: relative;
+        z-index: 13;
+        
+        &-logo {
+            height: 63px;
+            line-height: 63px;
+            text-align: center;
+            border-bottom: 1px solid #f8f8f9;
+            overflow: hidden;
+                    
+            img{
+                height: 80%;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &-header{
+        width: 100%;
+        background: #fff;
+        padding: 0;
+        box-shadow: 0 1px 4px rgba(0,21,41,.08);
+        z-index: 3;
+        display: block;
+        color: #f6ca9d;
+
+        &-right{
+            height: 64px;
+            float: right;
+        }
+
+        &-user{
+            &-name{
+                margin-left: 12px;
+            }
+        }
+    }
+}

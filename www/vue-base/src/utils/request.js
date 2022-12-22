@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Setting from '@/setting'
+import Settings from '@/settings'
 
 function errorCreate(msg) {
     const err = new Error(msg)
@@ -14,7 +14,7 @@ function errorLog(err) {
 // 创建一个 axios 实例
 const service = axios.create({
     // 在请求地址前面加上 baseURL
-    baseURL: Setting.apiBaseURL,
+    baseURL: Settings.apiBaseURL,
     // 请求超时时间
     timeout: 60000,
     // 当发送跨域请求时允许携带 cookie
@@ -52,14 +52,14 @@ service.interceptors.response.use(
                 case -2:
                     Message.warning({
                         content: info,
-                        duration: Setting.modalDuration
+                        duration: Settings.modalDuration
                     });
                     return Promise.reject(data);
                 case -1:
                     Notice.warning({
                         title: '提示',
                         desc: info,
-                        duration: Setting.modalDuration
+                        duration: Settings.modalDuration
                     });
                     return Promise.reject(data);
                 case 0:

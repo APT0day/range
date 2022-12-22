@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 
 const form = reactive({
     username: 'admin',
@@ -18,8 +18,6 @@ const rule = reactive({
         trigger: 'blur'
     }]
 })
-
-
 
 function handleSubmit() {
     if (form.username && form.password) {
