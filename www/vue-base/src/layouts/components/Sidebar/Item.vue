@@ -5,7 +5,7 @@
                 <Icon :type="item.meta.icon" />
                 {{ item.meta.title }}
             </template>
-            <Item v-for="child in item.children" :key="child.path" :item="child" :base-path="child.path"  />
+            <Item v-if="item.children" v-for="child in item.children" :key="child.path" :item="child" :base-path="child.path"  />
         </Submenu>
     </div>
 </template>

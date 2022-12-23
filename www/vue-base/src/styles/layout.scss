@@ -1,23 +1,31 @@
 
 .layout{
+    background: #333439;
     
     &-sider{
         min-height: 100vh;
         background: #fff;
         box-shadow: 2px 0 8px 0 rgba(29,35,41,.05);
         position: relative;
+        border-radius: 4px;
         z-index: 13;
+        width: auto;
         
         &-logo {
             height: 63px;
-            line-height: 63px;
-            text-align: center;
-            border-bottom: 1px solid #f8f8f9;
+            line-height: 6px;
+            text-align: left;
+            border-bottom: 1px solid #333439;
+            border-right: 1px solid #333439;
             overflow: hidden;
                     
-            img{
+            &-img{
                 height: 80%;
                 vertical-align: middle;
+            }
+
+            &-title{
+                color: #f6ca9d;
             }
         }
     }
@@ -26,10 +34,21 @@
         width: 100%;
         background: #fff;
         padding: 0;
-        box-shadow: 0 1px 4px rgba(0,21,41,.08);
+        box-shadow: 0 1px 1px rgba(0,0,0,.1);
+        // box-shadow: 0 1px 4px rgba(0,21,41,.08);
         z-index: 3;
         display: block;
         color: #f6ca9d;
+        text-align: right;
+        font-size: 12px;
+
+        &-left{
+            width: 10px;
+            height: 64px;
+            &-rotateIcon{
+                transform: rotate(-90deg);
+            }
+        }
 
         &-right{
             height: 64px;
@@ -39,6 +58,23 @@
         &-user{
             &-name{
                 margin-left: 12px;
+            }
+        }
+    }
+
+    &-content{
+        margin: 20px;
+        background: #fff;
+        height: 260px;
+
+        &-main{
+            margin: 24px;
+            position: relative;
+            &-flex{
+                flex: auto;
+            }
+            &-no-margin{
+                margin: 0;
             }
         }
     }
