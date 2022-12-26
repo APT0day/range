@@ -2,8 +2,8 @@
     <div class="layout">
         <Layout>
             <!-- 侧边栏 -->
-            <Sider class="layout-sider" :width="settings.layout.sidebarWidth" ref="sider" hide-trigger collapsible
-                :collapsed-width="78" v-model="isCollapsed">
+            <Sider class="layout-sider" :width="settings.layout.sidebarWidth" hide-trigger collapsible
+                :collapsed-width="70" v-model="isCollapsed">
                 <i-sidebar :collapsed="isCollapsed" />
             </Sider>
             <!-- 右侧内容区 -->
@@ -12,8 +12,10 @@
                     <!-- 顶部导航栏 -->
                     <div class="layout-header-left">
                         <!-- 顶部导航栏左侧 -->
-                        <Icon @click="collapsedSider" :class="rotateIcon" type="md-menu" size="24" />
-                        <i-breadcrumb />
+                        <div class="layout-header-left-collapsedIcon">
+                            <Icon @click="collapsedSider" :class="rotateCollapsedIcon" type="md-menu" size="24" />
+                        </div>
+                        <i-breadcrumb class="layout-header-left-breadcrumb" />
                     </div>
                     <div class="layout-header-right">
                         <!-- 顶部导航栏右侧 -->
@@ -42,10 +44,9 @@ const isCollapsed = ref(false)
 
 function collapsedSider() {
     isCollapsed.value = !isCollapsed.value
-    // sider.toggleCollapse();
 }
 
-const rotateIcon = computed(() => {
-    return isCollapsed.value ? 'layout-header-left-rotateIcon' : ''
+const rotateCollapsedIcon = computed(() => {
+    return isCollapsed.value ? 'layout-header-left-rotateCollapsedIcon' : ''
 })
 </script>

@@ -1,21 +1,38 @@
 export const routes = [
     {
         path: '/',
-        // redirect: {
-        //     name: 'home'
-        // },
+        name: 'Home',
         component: () => import('@/layouts/index.vue'),
-        alwaysShow: true,
         meta: { title: '首页', icon: 'ios-paper' },
         children: [
             {
-                path: '',
-                name: 'home',
+                path: '/dashboard',
+                name: 'Dashboard',
                 meta: { title: '工作台' },
-                component: () => import('@/views/Home.vue')
+                component: () => import('@/views/dashboard/dashboard.vue')
             }
         ]
     },
+    {
+        path: '/sql',
+        name: 'Sql',
+        component: () => import('@/views/sql/sql1.vue'),
+        meta: { title: 'SQL', icon: 'ios-paper' }
+    },
+    {
+        path: '/xss',
+        name: 'XSS',
+        component: () => import('@/layouts/index.vue'),
+        meta: { title: 'XSS', icon: 'ios-paper' },
+        children: [
+            {
+                path: '/xss1',
+                name: 'xss1',
+                component: () => import('@/views/xss/xss1.vue'),
+                meta: { title: 'XSS1' },
+            }
+        ]
+    }
     // {
     //     path: '/',
     //     redirect: '/login',
