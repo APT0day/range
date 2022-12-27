@@ -1,7 +1,7 @@
 <template>
     <div>
         <MenuItem :name="menu.path" :to="menu.path">
-            <i-item-title :icon="menu.meta.icon" :title="menu.meta.title" :hideTitle="hideTitle" />
+            <i-item-title :icon="menu.meta.icon" :title="menu.meta.title" />
         </MenuItem>
     </div>
 </template>

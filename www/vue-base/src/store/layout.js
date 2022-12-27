@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia'
 import settings from '@/settings'
 
-export const userStore = defineStore('user', {
+export const layoutStore = defineStore('layout', {
     state: () => ({
-        count: 1,
-        settings: settings
+        settings: settings.layout
     })
 })

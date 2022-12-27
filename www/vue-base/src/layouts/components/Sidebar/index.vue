@@ -1,12 +1,13 @@
 <template>
     <div>
-        <div v-if="settings.layout.showLogo" class="layout-sider-logo" @click="$router.push('/')">
+        <div v-if="showLogo" class="layout-sider-logo" @click="$router.push('/')">
+            {{ store }}
             <template v-if="!collapsed">
-                <img :src="settings.layout.logo" class="layout-sider-logo-img" alt="logo" />
-                <h1 class="layout-sider-logo-title">{{ settings.layout.title }}</h1> 
+                <img :src="logo" class="layout-sider-logo-img" alt="logo" />
+                <h1 class="layout-sider-logo-title">{{ title }}</h1> 
             </template>
             <template v-else>
-                <img :src="settings.layout.logo" class="layout-sider-logo-img" alt="logo" />
+                <img :src="logo" class="layout-sider-logo-img" alt="logo" />
             </template>
         </div>
         <Menu mode="vertical" theme="dark" :active-name="activeMenu" width="auto">
@@ -14,8 +15,11 @@
                 <i-item v-if="route.children === undefined || !route.children.length" :menu="route" />
                 <i-item-sub v-else :menu="route" />
             </template>
-            <template v-else>
-                <i-item v-for="route in routes" :menu="route" hideTitle />
+            <template v-else v-for="route in routes">
+                <Tooltip :content="route.meta.title" placement="right" v-if="route.children === undefined || !route.children.length">
+                    <i-item v-for="route in routes" :menu="route" hideTitle />
+                </Tooltip>
+                
             </template>
         </Menu>
     </div>
@@ -25,9 +29,12 @@
 import { defineProps, computed } from 'vue';
 import { useRoute } from 'vue-router'
 import { routes } from '@/router/routes'
+import { layoutStore } from '@/store/layout'
 import iItem from './item.vue'
 import iItemSub from './item-sub.vue'
-import settings from '@/settings'
+
+const store = layoutStore()
+// const { showLogo, logo, title } = layoutStore()
 
 const props = defineProps({
     collapsed: {

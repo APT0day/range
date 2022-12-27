@@ -24,9 +24,9 @@
                 </Header>
                 <Content class="layout-content">
                     <!-- 内容区 -->
-                    <!-- <keep-alive>
+                    <keep-alive>
                         <router-view />
-                    </keep-alive> -->
+                    </keep-alive>
                 </Content>
             </Layout>
         </Layout>
@@ -50,3 +50,12 @@ const rotateCollapsedIcon = computed(() => {
     return isCollapsed.value ? 'layout-header-left-rotateCollapsedIcon' : ''
 })
 </script>
+<style>
+.ivu-layout{
+    padding: 0;
+    background: red;
+}
+/* .layout-sider{
+    background: #004fff;
+} */
+</style>
