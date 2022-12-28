@@ -1,14 +1,14 @@
 <template>
     <div>
         deffe
-        {{ store.count }}
-        {{ store.settings }}
+        <br><br>
+        {{ store }}
     </div>
 </template>
 
 <script setup>
-import { userStore } from '@/store/user'
-const store = userStore()
+import { layoutStore } from '@/store/layout'
+const store = layoutStore()
 
 </script>
 

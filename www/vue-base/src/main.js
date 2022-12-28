@@ -8,7 +8,7 @@ import router from '@/router'
 import { createPinia } from 'pinia'
 
 // 全局样式
-import '@/styles/index.scss'
+import './styles/index.scss'
 
 import ViewUIPlus from '@/plugins/iview'
 

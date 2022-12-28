@@ -3,6 +3,7 @@ import settings from '@/settings'
 
 export const layoutStore = defineStore('layout', {
     state: () => ({
-        settings: settings.layout
+        settings: settings.layout,
+        light: '#fff'
     })
 })

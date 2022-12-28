@@ -6,7 +6,7 @@ export const Settings = {
 
     // layout
     layout: {
-        sidebarWidth: 256,
+        sidebarWidth: 250,
         // 是否显示侧边栏 logo
         showLogo: true,
         // 侧边栏 logo 地址

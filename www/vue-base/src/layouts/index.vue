@@ -2,13 +2,13 @@
     <div class="layout">
         <Layout>
             <!-- 侧边栏 -->
-            <Sider class="layout-sider" :width="settings.layout.sidebarWidth" hide-trigger collapsible
+            <Sider class="layout-sider" :width="store.settings.sidebarWidth" hide-trigger collapsible
                 :collapsed-width="70" v-model="isCollapsed">
                 <i-sidebar :collapsed="isCollapsed" />
             </Sider>
             <!-- 右侧内容区 -->
             <Layout>
-                <Header class="layout-header">
+                <Header class="layout-header" style="height: 60px; padding: 0 20px;">
                     <!-- 顶部导航栏 -->
                     <div class="layout-header-left">
                         <!-- 顶部导航栏左侧 -->
@@ -24,9 +24,11 @@
                 </Header>
                 <Content class="layout-content">
                     <!-- 内容区 -->
-                    <keep-alive>
-                        <router-view />
-                    </keep-alive>
+                    <router-view v-slot="{ Component }">
+                        <keep-alive>
+                            <component :is="Component" />
+                        </keep-alive>
+                    </router-view>
                 </Content>
             </Layout>
         </Layout>
@@ -35,12 +37,13 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { layoutStore } from '@/store/layout'
 import iSidebar from '@/layouts/components/Sidebar/index.vue'
 import iBreadcrumb from '@/layouts/components/Header/breadcrumb.vue'
 import iHeaderUser from '@/layouts/components/Header/user.vue'
-import settings from '@/settings'
 
 const isCollapsed = ref(false)
+const store = layoutStore()
 
 function collapsedSider() {
     isCollapsed.value = !isCollapsed.value
@@ -50,12 +53,15 @@ const rotateCollapsedIcon = computed(() => {
     return isCollapsed.value ? 'layout-header-left-rotateCollapsedIcon' : ''
 })
 </script>
-<style>
-.ivu-layout{
-    padding: 0;
-    background: red;
+<style lang="scss" scoped>
+.layout {
+    &-sider {
+        background-color: #fff;
+    }
+
+    &-header {
+        color: #f6ca9d;
+        background-color: #fff;
+    }
 }
-/* .layout-sider{
-    background: #004fff;
-} */
 </style>
