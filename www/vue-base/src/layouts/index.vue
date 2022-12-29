@@ -2,7 +2,7 @@
     <div class="layout">
         <Layout>
             <!-- 侧边栏 -->
-            <Sider class="layout-sider" :width="store.settings.sidebarWidth" hide-trigger collapsible
+            <Sider class="layout-sider" :width="settings.layout.sidebarWidth" hide-trigger collapsible
                 :collapsed-width="70" v-model="isCollapsed">
                 <i-sidebar :collapsed="isCollapsed" />
             </Sider>
@@ -37,13 +37,12 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { layoutStore } from '@/store/layout'
 import iSidebar from '@/layouts/components/Sidebar/index.vue'
 import iBreadcrumb from '@/layouts/components/Header/breadcrumb.vue'
 import iHeaderUser from '@/layouts/components/Header/user.vue'
+import settings from '@/settings'
 
 const isCollapsed = ref(false)
-const store = layoutStore()
 
 function collapsedSider() {
     isCollapsed.value = !isCollapsed.value

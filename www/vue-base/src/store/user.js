@@ -3,7 +3,11 @@ import settings from '@/settings'
 
 export const userStore = defineStore('user', {
     state: () => ({
-        count: 1,
-        settings: settings
-    })
+        token: null
+    }),
+    actions: {
+        setToken(token) {
+            this.token = token
+        }
+    }
 })

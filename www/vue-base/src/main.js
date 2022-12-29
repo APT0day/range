@@ -4,12 +4,13 @@ import App from "@/App.vue";
 // 路由
 import router from '@/router'
 
-// pinia
-import { createPinia } from 'pinia'
-
 // 全局样式
 import './styles/index.scss'
 
-import ViewUIPlus from '@/plugins/iview'
+import setupPlugins from '@/plugins'
 
-createApp(App).use(router).use(createPinia()).use(ViewUIPlus).mount("#app");
+const app = createApp(App)
+
+setupPlugins(app)
+
+app.use(router).mount("#app");

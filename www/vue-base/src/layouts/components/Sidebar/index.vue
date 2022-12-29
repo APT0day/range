@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-if="store.settings.showLogo" style="display: flex; justify-content: center;"
-            @click="$router.push('/dashboard')">
+        <div v-if="settings.layout.showLogo" style="display: flex; justify-content: center;"
+            @click="$router.push('/dashboard/console')">
             <i-logo :collapsed="collapsed" />
         </div>
         <Menu mode="vertical" theme="light" accordion :active-name="activeName" :open-names="openNames" width="auto">
@@ -26,12 +26,10 @@
 import { defineProps, computed } from 'vue';
 import { useRoute } from 'vue-router'
 import { routes } from '@/router/routes'
-import { layoutStore } from '@/store/layout'
+import settings from '@/settings'
 import iLogo from './logo.vue'
 import iItem from './item.vue'
 import iItemSub from './item-sub.vue'
-
-const store = layoutStore()
 
 const props = defineProps({
     collapsed: {
@@ -41,8 +39,8 @@ const props = defineProps({
 })
 
 const activeName = computed(() => {
-    const route = useRoute();
-    const { meta, path } = route;
+    const router = useRoute();
+    const { meta, path } = router;
     if (meta.activeMenu) {
         return meta.activeMenu;
     }
@@ -50,12 +48,13 @@ const activeName = computed(() => {
 });
 
 const openNames = computed(() => {
-    const route = useRoute()
-    const { path } = route
+    const router = useRoute()
+    const { path } = router
     return '[' + path + ']'
 })
 </script>
 <style lang="scss" scop>
+// 去除 iview menu 组件下的下划线
 .ivu-menu-light {
    &:after {
      height: 0px !important;
