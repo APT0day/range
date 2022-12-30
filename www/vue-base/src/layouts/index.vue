@@ -24,6 +24,7 @@
                 </Header>
                 <Content class="layout-content">
                     <!-- 内容区 -->
+                    <i-tags />
                     <router-view v-slot="{ Component }">
                         <keep-alive>
                             <component :is="Component" />
@@ -37,9 +38,10 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import iSidebar from '@/layouts/components/Sidebar/index.vue'
-import iBreadcrumb from '@/layouts/components/Header/breadcrumb.vue'
-import iHeaderUser from '@/layouts/components/Header/user.vue'
+import iSidebar from '@/layouts/components/sidebar/index'
+import iBreadcrumb from '@/layouts/components/header/breadcrumb'
+import iHeaderUser from '@/layouts/components/header/user'
+import iTags from '@/layouts/components/tags'
 import settings from '@/settings'
 
 const isCollapsed = ref(false)

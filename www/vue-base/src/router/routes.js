@@ -8,10 +8,16 @@ const frameIn = [
         redirect: {
             name: 'dashboard-console'
         },
-        component: () => import('@/layouts/index.vue'),
-        meta: {
-            title: ''
-        }
+        component: () => import('@/layouts/index'),
+        children: [
+            {
+                path: 'index',
+                name: 'index',
+                redirect: {
+                    name: 'dashboard-console'
+                }
+            }
+        ]
     },
     dashboard,
     sql
@@ -26,7 +32,7 @@ const frameOut = [
         meta: {
             title: 'login'
         },
-        component: () => import('@/views/account/login.vue')
+        component: () => import('@/views/account/login')
     },
     // 忘记密码
     {
@@ -35,7 +41,7 @@ const frameOut = [
         meta: {
             title: 'forgetPwd'
         },
-        component: () => import('@/views/account/forgetPwd.vue')
+        component: () => import('@/views/account/forgetPwd')
     },
     // 注册
     {
@@ -44,7 +50,7 @@ const frameOut = [
         meta: {
             title: 'register'
         },
-        component: () => import('@/views/account/register.vue')
+        component: () => import('@/views/account/register')
     },
     // 注册结果
     {
@@ -54,7 +60,7 @@ const frameOut = [
             auth: true,
             title: 'register-result'
         },
-        component: () => import('@/views/account/registerResult.vue')
+        component: () => import('@/views/account/registerResult')
     }
 ]
 
@@ -66,7 +72,7 @@ const errorPage = [
         meta: {
             title: '403'
         },
-        component: () => import('@/views/errors/403.vue')
+        component: () => import('@/views/errors/403')
     },
     {
         path: '/500',
@@ -74,7 +80,7 @@ const errorPage = [
         meta: {
             title: '500'
         },
-        component: () => import('@/views/errors/500.vue')
+        component: () => import('@/views/errors/500')
     },
     {
         path: '/*',
@@ -82,7 +88,7 @@ const errorPage = [
         meta: {
             title: '404'
         },
-        component: () => import('@/views/errors/404.vue')
+        component: () => import('@/views/errors/404')
     }
 ]
 

@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
 import settings from '@/settings'
 
 const props = defineProps({

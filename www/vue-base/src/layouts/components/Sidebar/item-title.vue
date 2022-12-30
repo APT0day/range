@@ -1,21 +1,17 @@
 <template>
     <div>
-        <Icon v-if="icon" :type="icon" />
-        <span v-if="!hideTitle">{{ title }}</span>
+        <Icon v-if="menu.meta != undefined && menu.meta.icon != undefined" :type="menu.meta.icon" />
+        <span v-if="menu.meta != undefined && menu.meta.title != undefined && !hideTitle">{{ menu.meta.title }}</span>
     </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-
 const props = defineProps({
-    icon: {
-        type: String,
-        default: ''
-    },
-    title: {
-        type: String,
-        default: ''
+    menu: {
+        type: Object,
+        default() {
+            return {}
+        }
     },
     hideTitle: {
         type: Boolean,

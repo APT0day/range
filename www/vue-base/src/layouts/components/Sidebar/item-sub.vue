@@ -2,7 +2,7 @@
     <div>
         <Submenu :name="menu.path">
             <template #title>
-                <i-item-title :icon="menu.meta.icon" :title="menu.meta.title" />
+                <i-item-title :menu="menu" :hideTitle="hideTitle" />
             </template>
             <template v-for="child in menu.children">
                 <i-item v-if="child.children === undefined || !child.children.length" :menu="child" />
@@ -13,14 +13,15 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
-import iItemTitle from './item-title.vue'
-import iItem from './Item.vue'
+import iItemTitle from './item-title'
+import iItem from './item'
 
 const props = defineProps({
     menu: {
         type: Object,
-        require: true
+        default() {
+            return {}
+        }
     },
     hideTitle: {
         type: Boolean,

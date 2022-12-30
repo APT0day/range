@@ -11,7 +11,7 @@
                     <i-item-sub v-else :menu="route" />
                 </template>
                 <template v-else>
-                    <Tooltip :content="route.meta.title" placement="right"
+                    <Tooltip :content="route.name" placement="right"
                         v-if="route.children === undefined || !route.children.length">
                         <i-item v-for="route in routes" :menu="route" hideTitle />
                     </Tooltip>
@@ -23,13 +23,13 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router'
 import { routes } from '@/router/routes'
 import settings from '@/settings'
-import iLogo from './logo.vue'
-import iItem from './item.vue'
-import iItemSub from './item-sub.vue'
+import iLogo from './logo'
+import iItem from './item'
+import iItemSub from './item-sub'
 
 const props = defineProps({
     collapsed: {

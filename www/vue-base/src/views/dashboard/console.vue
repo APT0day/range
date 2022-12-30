@@ -7,8 +7,8 @@
 </template>
 
 <script setup>
-import { layoutStore } from '@/store'
-const store = layoutStore()
+import { useLayoutStore } from '@/store'
+const store = useLayoutStore()
 
 </script>
 

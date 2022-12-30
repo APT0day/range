@@ -20,10 +20,9 @@
 </template>
 
 <script setup>
-
 function handleClick(name) {
     if(name === 'logout') {
-        console.log('logout')
+        $router.push('/login')
     }
 }
 </script>
