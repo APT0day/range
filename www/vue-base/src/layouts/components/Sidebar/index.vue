@@ -5,7 +5,7 @@
             <i-logo :collapsed="collapsed" />
         </div>
         <Menu mode="vertical" theme="light" accordion :active-name="activeName" :open-names="openNames" width="auto">
-            <div v-for="route in routes">
+            <div v-for="route in menuListRoutes">
                 <template v-if="!collapsed">
                     <i-item v-if="route.children === undefined || !route.children.length" :menu="route" />
                     <i-item-sub v-else :menu="route" />
@@ -13,7 +13,7 @@
                 <template v-else>
                     <Tooltip :content="route.name" placement="right"
                         v-if="route.children === undefined || !route.children.length">
-                        <i-item v-for="route in routes" :menu="route" hideTitle />
+                        <i-item v-for="route in menuListRoutes" :menu="route" hideTitle />
                     </Tooltip>
 
                 </template>
@@ -25,7 +25,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useRoute } from 'vue-router'
-import { routes } from '@/router/routes'
+import { menuListRoutes } from '@/router/routes.js'
 import settings from '@/settings'
 import iLogo from './logo'
 import iItem from './item'

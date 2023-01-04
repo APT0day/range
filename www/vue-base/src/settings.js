@@ -10,7 +10,7 @@ export const Settings = {
         // 是否显示侧边栏 logo
         showLogo: true,
         // 侧边栏 logo 地址
-        logo: 'src/assets/logo.webp',
+        logo: '../src/assets/logo.webp',
         // 侧边栏 title
         title: 'iView Admin',
     }

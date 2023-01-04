@@ -1,30 +1,23 @@
+// import { RouteRecordRaw} from 'vue-router'
 import dashboard from './modules/dashboard'
 import sql from './modules/sql'
 
 // 主框架内显示
-const frameIn = [
+const frameInRoutes = [
     {
         path: '/',
         redirect: {
             name: 'dashboard-console'
         },
-        component: () => import('@/layouts/index'),
-        children: [
-            {
-                path: 'index',
-                name: 'index',
-                redirect: {
-                    name: 'dashboard-console'
-                }
-            }
-        ]
+        isHide: true,
+        component: () => import('@/layouts/index')
     },
     dashboard,
     sql
 ]
 
 // 主框架外显示
-const frameOut = [
+const publicRoutes = [
     // 登录
     {
         path: '/login',
@@ -65,7 +58,7 @@ const frameOut = [
 ]
 
 // 错误页面
-const errorPage = [
+const errorPageRoutes = [
     {
         path: '/403',
         name: '403',
@@ -93,11 +86,11 @@ const errorPage = [
 ]
 
 // 导出显示菜单的路由
-export const routes = frameIn
+export const menuListRoutes = frameInRoutes
 
 // 重新组织后导出
 export default [
-    ...frameIn,
-    ...frameOut,
-    ...errorPage
+    ...frameInRoutes,
+    ...publicRoutes,
+    ...errorPageRoutes
 ]
