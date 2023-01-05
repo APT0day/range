@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
-import settings from '@/settings'
 
-export const userStore = defineStore('user', {
+export const useUserStore = defineStore('user', {
     state: () => ({
         token: null
     }),

@@ -1,11 +1,11 @@
 <template>
     <div>
         <div v-if="settings.layout.showLogo" style="display: flex; justify-content: center;"
-            @click="$router.push('/dashboard/console')">
+            @click="router.push('/')">
             <i-logo :collapsed="collapsed" />
         </div>
-        <Menu mode="vertical" theme="light" accordion :active-name="activeName" :open-names="openNames" width="auto">
-            <div v-for="route in menuListRoutes">
+        <Menu mode="vertical" theme="light" accordion :active-name="router.name" :open-names="['dashboard-console']" width="auto">
+            <div v-for="route in store.siderMenuList">
                 <template v-if="!collapsed">
                     <i-item v-if="route.children === undefined || !route.children.length" :menu="route" />
                     <i-item-sub v-else :menu="route" />
@@ -13,9 +13,9 @@
                 <template v-else>
                     <Tooltip :content="route.name" placement="right"
                         v-if="route.children === undefined || !route.children.length">
-                        <i-item v-for="route in menuListRoutes" :menu="route" hideTitle />
+                        <i-item :menu="route" hideTitle />
                     </Tooltip>
-
+                    <template v-else>defef</template>
                 </template>
             </div>
         </Menu>
@@ -24,12 +24,15 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useRoute } from 'vue-router'
-import { menuListRoutes } from '@/router/routes.js'
+import { useRouter, useRoute } from 'vue-router'
 import settings from '@/settings'
 import iLogo from './logo'
 import iItem from './item'
 import iItemSub from './item-sub'
+import { useLayoutStore } from '@/store/layout'
+
+const router = useRouter()
+const store = useLayoutStore()
 
 const props = defineProps({
     collapsed: {
@@ -39,19 +42,10 @@ const props = defineProps({
 })
 
 const activeName = computed(() => {
-    const router = useRoute();
-    const { meta, path } = router;
-    if (meta.activeMenu) {
-        return meta.activeMenu;
-    }
-    return path;
+    const route = useRoute();
+    return route.name;
 });
 
-const openNames = computed(() => {
-    const router = useRoute()
-    const { path } = router
-    return '[' + path + ']'
-})
 </script>
 <style lang="scss" scop>
 // 去除 iview menu 组件下的下划线

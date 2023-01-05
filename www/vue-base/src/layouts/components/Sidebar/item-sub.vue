@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Submenu :name="menu.path">
+        <Submenu :name="menu.name">
             <template #title>
                 <i-item-title :menu="menu" :hideTitle="hideTitle" />
             </template>
@@ -28,4 +28,5 @@ const props = defineProps({
         default: false
     }
 })
+console.log(props.menu)
 </script>

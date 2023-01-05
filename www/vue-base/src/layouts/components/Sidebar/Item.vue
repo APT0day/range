@@ -1,6 +1,6 @@
 <template>
     <div>
-        <MenuItem :name="menu.path" :to="menu.path">
+        <MenuItem :name="menu.name" :to="menu.path">
             <i-item-title :menu="menu" :hideTitle="hideTitle" />
         </MenuItem>
     </div>
